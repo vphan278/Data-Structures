@@ -1,0 +1,206 @@
+
+//// BubbleSort
+
+// Function to perform Bubble Sort
+void bubbleSort(int arr[], int n) {
+    for (int i = 0; i < n - 1; i++) {
+        for (int j = 0; j < n - i - 1; j++) {
+            if (arr[j] > arr[j + 1]) {
+                // Swap adjacent elements if they are in the wrong order
+                swap(arr[j], arr[j + 1]);
+            }
+        }
+    }
+}
+
+//// InsertionSort
+
+// Function to perform Insertion Sort
+void insertionSort(int arr[], int n) {
+    for (int i = 1; i < n; i++) {
+        int key = arr[i];
+        int j = i - 1;
+
+        // Move elements that are greater than 'key' one position ahead
+        while (j >= 0 && arr[j] > key) {
+            arr[j + 1] = arr[j];
+            j--;
+        }
+        arr[j + 1] = key;
+    }
+}
+
+//// SelectionSort
+
+// Function to perform Selection Sort
+void selectionSort(int arr[], int n) {
+    for (int i = 0; i < n - 1; i++) {
+        int minIndex = i;
+
+        // Find the index of the smallest element in the remaining array
+        for (int j = i + 1; j < n; j++) {
+            if (arr[j] < arr[minIndex]) {
+                minIndex = j;
+            }
+        }
+
+        // Swap the found minimum element with the first element of the unsorted part
+        swap(arr[i], arr[minIndex]);
+    }
+}
+
+//// InsertionSort
+
+template <typename T>
+void InsertionSort(vector<T>& arr) {
+    for (int i = 1; i < arr.size(); i++) {
+        int j = i - 1;
+        
+        while (j >= 0 && CompareGT(arr, j, j + 1)) {
+            Exchange(arr, j, j + 1);
+            j--;
+        }
+        ::passes++;
+    }
+}
+
+//// ShellSort
+
+template <typename T>
+void ShellSort(vector<T>& arr) {
+    int n = arr.size();
+    
+    // Start with a large gap, then reduce it
+    for (int gap = n / 2; gap > 0; gap /= 2) {
+        for (int i = gap; i < n; i++) {
+            int j = i;
+            
+            // Perform insertion-like sorting with gap intervals
+            while (j >= gap && CompareGT(arr, j - gap, j)) {
+                Exchange(arr, j - gap, j);
+                j -= gap;
+            }
+        }
+        ::passes++;
+    }
+}
+
+//// QuickSort
+
+// Function to partition the array
+int partition(int arr[], int low, int high) {
+    int pivot = arr[high];  // Choose the last element as pivot
+    int i = low - 1;
+
+    for (int j = low; j < high; j++) {
+        if (arr[j] <= pivot) {
+            i++;
+            std::swap(arr[i], arr[j]);  // Swap smaller element with pivot location
+        }
+    }
+    std::swap(arr[i + 1], arr[high]); // Move pivot to correct position
+    return i + 1;
+}
+
+// QuickSort function (recursive)
+void quickSort(int arr[], int low, int high) {
+    if (low < high) {
+        int pivotIndex = partition(arr, low, high);
+        
+        quickSort(arr, low, pivotIndex - 1);  // Sort left side
+        quickSort(arr, pivotIndex + 1, high); // Sort right side
+    }
+}
+
+//// MergeSort
+// Merge two sorted subarrays into one sorted array
+void merge(int arr[], int left, int mid, int right) {
+    int n1 = mid - left + 1;
+    int n2 = right - mid;
+
+    int leftArr[n1], rightArr[n2];
+
+    // Copy data into temporary subarrays
+    for (int i = 0; i < n1; i++)
+        leftArr[i] = arr[left + i];
+    for (int j = 0; j < n2; j++)
+        rightArr[j] = arr[mid + 1 + j];
+
+    int i = 0, j = 0, k = left;
+
+    // Merge the subarrays back into the main array
+    while (i < n1 && j < n2) {
+        if (leftArr[i] <= rightArr[j]) {
+            arr[k] = leftArr[i];
+            i++;
+        } else {
+            arr[k] = rightArr[j];
+            j++;
+        }
+        k++;
+    }
+
+    // Copy any remaining elements from left subarray
+    while (i < n1) {
+        arr[k] = leftArr[i];
+        i++;
+        k++;
+    }
+
+    // Copy any remaining elements from right subarray
+    while (j < n2) {
+        arr[k] = rightArr[j];
+        j++;
+        k++;
+    }
+}
+
+// Recursive function to perform Merge Sort
+void mergeSort(int arr[], int left, int right) {
+    if (left < right) {
+        int mid = left + (right - left) / 2; // Find the midpoint
+
+        mergeSort(arr, left, mid);     // Sort the left half
+        mergeSort(arr, mid + 1, right); // Sort the right half
+        merge(arr, left, mid, right);  // Merge sorted halves
+    }
+}
+
+//// IntroSort
+
+// Partition function for QuickSort
+int partition(int arr[], int low, int high) {
+    int pivot = arr[high];
+    int i = low - 1;
+    
+    for (int j = low; j < high; j++) {
+        if (arr[j] <= pivot) {
+            i++;
+            std::swap(arr[i], arr[j]);
+        }
+    }
+    std::swap(arr[i + 1], arr[high]);
+    return i + 1;
+}
+
+// QuickSort function with recursion depth tracking
+void quickSort(int arr[], int low, int high, int depthLimit) {
+    if (low < high) {
+        if (depthLimit == 0) {
+            // Switch to HeapSort when recursion depth exceeds threshold
+            std::make_heap(arr + low, arr + high + 1);
+            std::sort_heap(arr + low, arr + high + 1);
+            return;
+        }
+        
+        int pivotIndex = partition(arr, low, high);
+        quickSort(arr, low, pivotIndex - 1, depthLimit - 1);
+        quickSort(arr, pivotIndex + 1, high, depthLimit - 1);
+    }
+}
+
+// Helper function to determine depth limit and call Introsort
+void introsort(int arr[], int size) {
+    int depthLimit = 2 * log2(size); // Depth limit for QuickSort
+    quickSort(arr, 0, size - 1, depthLimit);
+}
