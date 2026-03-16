@@ -1,0 +1,328 @@
+### C++ Version
+
+#include <iostream>
+#include <algorithm>
+
+struct Node {
+    int key;
+    Node* left;
+    Node* right;
+    Node* parent;
+    int height;
+    bool color;
+    Node(int k) : key(k), left(nullptr), right(nullptr), parent(nullptr), height(1), color(false) {}
+};
+
+int h(Node* n) {
+    return n ? n->height : 0;
+}
+
+int bf(Node* n) {
+    return n ? h(n->left) - h(n->right) : 0;
+}
+
+Node* rotateRight(Node* y) {
+    Node* x = y->left;
+    Node* t = x->right;
+    x->right = y;
+    y->left = t;
+    if (t) t->parent = y;
+    x->parent = y->parent;
+    y->parent = x;
+    y->height = std::max(h(y->left), h(y->right)) + 1;
+    x->height = std::max(h(x->left), h(x->right)) + 1;
+    return x;
+}
+
+Node* rotateLeft(Node* x) {
+    Node* y = x->right;
+    Node* t = y->left;
+    y->left = x;
+    x->right = t;
+    if (t) t->parent = x;
+    y->parent = x->parent;
+    x->parent = y;
+    x->height = std::max(h(x->left), h(x->right)) + 1;
+    y->height = std::max(h(y->left), h(y->right)) + 1;
+    return y;
+}
+
+class AVL {
+public:
+    Node* root;
+
+    AVL() : root(nullptr) {}
+
+    Node* insert(Node* n, int k) {
+        if (!n) return new Node(k);
+        if (k < n->key) {
+            n->left = insert(n->left, k);
+            n->left->parent = n;
+        } else if (k > n->key) {
+            n->right = insert(n->right, k);
+            n->right->parent = n;
+        } else {
+            return n;
+        }
+
+        n->height = std::max(h(n->left), h(n->right)) + 1;
+
+        int b = bf(n);
+
+        if (b > 1 && k < n->left->key) return rotateRight(n);
+        if (b < -1 && k > n->right->key) return rotateLeft(n);
+        if (b > 1 && k > n->left->key) {
+            n->left = rotateLeft(n->left);
+            n->left->parent = n;
+            return rotateRight(n);
+        }
+        if (b < -1 && k < n->right->key) {
+            n->right = rotateRight(n->right);
+            n->right->parent = n;
+            return rotateLeft(n);
+        }
+
+        return n;
+    }
+
+    void insert(int k) {
+        root = insert(root, k);
+    }
+};
+
+int main() {
+    AVL tree;
+    int x;
+    while (std::cin >> x) tree.insert(x);
+    return 0;
+}
+
+
+### Java Version
+
+import java.util.*;
+
+class Node {
+    int key;
+    Node left;
+    Node right;
+    Node parent;
+    int height;
+    boolean color;   
+
+    Node(int k) {
+        key = k;
+        left = null;
+        right = null;
+        parent = null;
+        height = 1;
+        color = false;
+    }
+}
+
+public class AVL {
+    Node root;
+
+    public AVL() {
+        root = null;
+    }
+
+    static int h(Node n) {
+        return (n == null) ? 0 : n.height;
+    }
+
+    static int bf(Node n) {
+        return (n == null) ? 0 : h(n.left) - h(n.right);
+    }
+
+    static Node rotateRight(Node y) {
+        Node x = y.left;
+        Node t = x.right;
+
+        x.right = y;
+        y.left = t;
+
+        if (t != null) t.parent = y;
+        x.parent = y.parent;
+        y.parent = x;
+
+        y.height = Math.max(h(y.left), h(y.right)) + 1;
+        x.height = Math.max(h(x.left), h(x.right)) + 1;
+
+        return x;
+    }
+
+    static Node rotateLeft(Node x) {
+        Node y = x.right;
+        Node t = y.left;
+
+        y.left = x;
+        x.right = t;
+
+        if (t != null) t.parent = x;
+        y.parent = x.parent;
+        x.parent = y;
+
+        x.height = Math.max(h(x.left), h(x.right)) + 1;
+        y.height = Math.max(h(y.left), h(y.right)) + 1;
+
+        return y;
+    }
+
+    Node insert(Node n, int k) {
+        if (n == null) return new Node(k);
+
+        if (k < n.key) {
+            n.left = insert(n.left, k);
+            n.left.parent = n;
+        } else if (k > n.key) {
+            n.right = insert(n.right, k);
+            n.right.parent = n;
+        } else {
+            return n;
+        }
+
+        n.height = Math.max(h(n.left), h(n.right)) + 1;
+        int b = bf(n);
+
+        if (b > 1 && k < n.left.key) return rotateRight(n);
+        if (b < -1 && k > n.right.key) return rotateLeft(n);
+
+        if (b > 1 && k > n.left.key) {
+            n.left = rotateLeft(n.left);
+            n.left.parent = n;
+            return rotateRight(n);
+        }
+
+        if (b < -1 && k < n.right.key) {
+            n.right = rotateRight(n.right);
+            n.right.parent = n;
+            return rotateLeft(n);
+        }
+
+        return n;
+    }
+
+    public void insert(int k) {
+        root = insert(root, k);
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        AVL tree = new AVL();
+
+        while (sc.hasNextInt()) {
+            int x = sc.nextInt();
+            tree.insert(x);
+        }
+        sc.close();
+    }
+}
+
+
+### Python Version
+
+class Node:
+    def __init__(self, k):
+        self.key = k
+        self.left = None
+        self.right = None
+        self.parent = None
+        self.height = 1
+        self.color = False   
+
+
+def h(n):
+    return n.height if n else 0
+
+
+def bf(n):
+    return h(n.left) - h(n.right) if n else 0
+
+
+def rotate_right(y):
+    x = y.left
+    t = x.right
+
+    x.right = y
+    y.left = t
+
+    if t:
+        t.parent = y
+
+    x.parent = y.parent
+    y.parent = x
+
+    y.height = max(h(y.left), h(y.right)) + 1
+    x.height = max(h(x.left), h(x.right)) + 1
+
+    return x
+
+
+def rotate_left(x):
+    y = x.right
+    t = y.left
+
+    y.left = x
+    x.right = t
+
+    if t:
+        t.parent = x
+
+    y.parent = x.parent
+    x.parent = y
+
+    x.height = max(h(x.left), h(x.right)) + 1
+    y.height = max(h(y.left), h(y.right)) + 1
+
+    return y
+
+
+def insert(n, k):
+    if n is None:
+        return Node(k)
+
+    if k < n.key:
+        n.left = insert(n.left, k)
+        n.left.parent = n
+    elif k > n.key:
+        n.right = insert(n.right, k)
+        n.right.parent = n
+    else:
+        return n
+
+    n.height = max(h(n.left), h(n.right)) + 1
+    b = bf(n)
+
+    if b > 1 and k < n.left.key:
+        return rotate_right(n)
+    if b < -1 and k > n.right.key:
+        return rotate_left(n)
+
+    if b > 1 and k > n.left.key:
+        n.left = rotate_left(n.left)
+        n.left.parent = n
+        return rotate_right(n)
+
+    if b < -1 and k < n.right.key:
+        n.right = rotate_right(n.right)
+        n.right.parent = n
+        return rotate_left(n)
+
+    return n
+
+
+def main():
+    import sys
+    root = None
+    for line in sys.stdin:
+        for part in line.split():
+            try:
+                x = int(part)
+            except ValueError:
+                continue
+            root = insert(root, x)
+
+
+if __name__ == "__main__":
+    main()
