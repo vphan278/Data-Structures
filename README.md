@@ -90,7 +90,6 @@ C++
 --------------------------------------------------
 
 AUTHOR
+Vinh Phan  
 
-Vinh Tan Phan  
-Computer Science Student  
-De Anza College
+
