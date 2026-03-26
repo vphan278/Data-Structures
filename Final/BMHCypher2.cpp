@@ -89,8 +89,7 @@ int horspool_match_v3(const std::string& hay, const std::string& needle) {
 }
 
 string readFile(const string& filename) {
-    ifstream fin(filename, ios::binary);  // ✅ IMPORTANT
-
+    ifstream fin(filename, ios::binary);  
     string content((istreambuf_iterator<char>(fin)),
                     istreambuf_iterator<char>());
 
