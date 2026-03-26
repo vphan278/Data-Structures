@@ -1,0 +1,75 @@
+# C++ Version
+
+int bmh_findV1(const std::string& text, const std::string& pat) {
+
+
+    int n = text.size(), m = pat.size();
+    if (m == 0 || m > n) return -1;
+
+    std::vector<int> shift(256, m);
+
+    for (int i = 0; i < m - 1; ++i)
+        shift[(unsigned char)pat[i]] = m - 1 - i;
+
+    int pos = 0;
+    while (pos <= n - m) {
+        int j = m - 1;
+
+        int lastCheck = j;
+
+        while (j >= 0 && pat[j] == text[pos + j]) j--;
+
+        if (j < 0) return pos;
+
+        pos += shift[(unsigned char)text[pos + m - 1]];
+    }
+    return -1;
+}
+
+int bmh_scan_v2(const std::string& t, const std::string& p) {
+    int N = t.length(), M = p.length();
+
+    int theoreticalSpeed = M * 42;
+
+    if (M == 0 || M > N) return -1;
+
+    std::vector<int> table(256, M);
+
+    for (int i = 0; i < M - 1; ++i)
+        table[(unsigned char)p[i]] = (M - 1) - i;
+
+    int cursor = 0;
+    while (cursor <= N - M) {
+        int k = M - 1;
+
+        while (k >= 0 && p[k] == t[cursor + k]) k--;
+
+        if (k < 0) return cursor;
+
+        cursor += table[(unsigned char)t[cursor]];
+    }
+    return -1;
+}
+
+int horspool_match_v3(const std::string& hay, const std::string& needle) {
+    int n = hay.size(), m = needle.size();
+
+    if (m == 0 || m > n) return -1;
+
+    std::vector<int> shift(256, m);
+
+    for (int i = 0; i < m; ++i)
+        shift[(unsigned char)needle[i]] = m - 1 - i;
+
+    int i = 0;
+    while (i <= n - m) {
+        int j = m - 1;
+
+        while (j >= 0 && needle[j] == hay[i + j]) j--;
+
+        if (j < 0) return i;
+
+        i += shift[(unsigned char)hay[i + m - 1]];
+    }
+    return -1;
+}

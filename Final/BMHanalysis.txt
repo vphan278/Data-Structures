@@ -1,0 +1,10 @@
+My strategy was to learn BMH first and what was the correct way to write BMH. 
+Then I tested each version separately and determined which one works and which one didn't.
+My rotor used a string that contained all 95 ASCII characters. My BMH data structure used a vector
+of size 256 for the shift table with text and patterns stored as strings.
+I tested my BMH variants by creating a string text = "WHERE IS THE FLIGHT TO JAMAICA" and 
+string pattern = "JAMAICA". I put in each variant codes and ran it separately first. Version1 gave me
+the correct result: V1 Found at index: 23, which i counted and was at index 23. Version 2 used the same strings 
+and pattern, but since the code was wrong, in only had [cursor] in instead of [cursor + m - 1], it jumped at the wrong index.
+Version 3 was tested separately and hung. The for loop was wrong. Version 3(horspool_match_v3), the for loop is i < m where it should be i < m -1. This is why it is in an infinite loop and will not give the output.
+So in my code, I made it a Boolean as false, so it didn't have to run in my entire code, and won't hang.

@@ -1,0 +1,83 @@
+Rotor positions:
+r1 = 0, r2 = 60
+
+Anchor words matched:
+THE AND TO OF IN IS YOU 
+
+First 200 characters of decoded prefix:
+)N_THE_OLD_KINGDOM_OF_,ORIANk_WHERE_THE_MOUNTAINS_ROSE_LIKE_ANCIENT_TEETH_AND_THE_RIVERS_WOUND_IN_LONG_SILVER_THREADSk_THERE_LIVED_A_YOUNG_ARCHIVIST_NAMED_%LIRAm_3HE_WORKED_IN_THE_'RAND_3CRIPTORIUMk_A
+
+Correct BMH variant: V1
+
+Why others fail:
+V2 should be [cursor + m - 1], so it jumps wrong and misses at index 23
+Version 3(horspool_match_v3), the for loop is i < m where it should be i < m -1. This is why it is in an infinite loop and will not give the output.
+Full decoded ciphertext:
+)N_THE_OLD_KINGDOM_OF_,ORIANk_WHERE_THE_MOUNTAINS_ROSE_LIKE_ANCIENT_TEETH_AND_THE_RIVERS_WOUND_IN_LONG_SILVER_THREADSk_THERE_LIVED_A_YOUNG_ARCHIVIST_NAMED_%LIRAm_3HE_WORKED_IN_THE_'RAND_3CRIPTORIUMk_A_PLACE_WHERE_EVERY_SCRAP_OF_KNOWLEDGEllMAPSk_SPELLSk_HISTORIESk_EVEN_HALFlFORGOTTEN_JOKESllWAS_STORED_IN_ENDLESS_SHELVES_THAT_SPIRALED_UPWARD_LIKE_A_3425#452%_CARVED_FROM_MOONLIGHTm_%LIRA_LOVED_THE_QUIET_OF_THE_STACKSk_THE_SMELL_OF_PARCHMENTk_AND_THE_WAY_THE_DUST_MOTES_DRIFTED_LIKE_TINY_STARSm
+
+-LC]KMPLGLEi]UFGJC]QMPRGLE]RFPMSEF]?]AP?RC]MD]B?K?ECB]QAPMJJQi]QFC]DMSLB\PMKCRFGLE]SLSQS?Jw]?]@SLBJC]MD]N?ECQ]RGCB]UGRF]?]QRPGN]MD]D?BCB]@JSC]AJMRFk]2FC]DGPQR]N?EC]@MPB\?]QRP?LEC]QCOSCLACw]***]****]~,~]~ ~]###]---k]~R]DGPQR]QFC]RFMSEFR]GR]U?Q]?]AFGJBdQ]QAPG@@JCi\?SR]RFC]GLI]QFGKKCPCB]D?GLRJWi]?Q]GD]PC?ARGLE]RM]FCP]RMSAFk] CLC?RF]RFC]QCOSCLAC]U?Q]?]JGLC]MD\PWK@MJQ]QFC]BGBLdR]PCAMELGXCw]^}`ab<cgef=h9;Y[Zxdw_ikly{|>\k]1FC]DPMULCBk]'R]JMMICB]JGIC]LMGQCh\@SR]RFC]1APGNRMPGSK]R?SEFR]RF?R]LMRFGLE]UPGRRCL]U?Q]CTCP]KC?LGLEJCQQk
+
+/DA[?=NNEA@[PDA[>QJ@G@ZOK[DAN[@AOG[=J@[QJNKHHA@[PDA[JATP[L=CAi[%P[?KJP=EJA@[=[ODKNP[L=OO=CA[SNEPPAJ[EJ[=[?=NABQH[D=I?t
+
+[."~YNL;P?F?LYQBIYM??EMYz(}Y@CH>MY#(!YMB;FFYEHIQY/" Y{)~Y$)"g[
+
+|DAJ9W:DAFC=<eW,@=WOGJ;JVCFFB<<W>9EADA9JcW:MLWOJGF?cW9KWA>WL@=QWO=J=WJ=>D=;LAGFKWAFW9WJAHHDAF?WHGF<eW+@=WO@AKH=J=<WL@<DV8CFL;dd, |cWx&{cW!&~dd9F<WL@=WAFCW:JA?@L=F=<eW- }cWy'|cW"' W<AEE=<WAFWJ=KHGFK=eW+@=W>=DLW9WK?@M<IVF=WJ=;G?FALAGFeW,@=K=WO=J=WF=9JdE9L;@=KcW=;@G=KWG>WLJM=WOGJ<Ke
+
+*>;UJ>?H:UF7=;UM7IU;L;DTHIG6C<:GbU~JU9EDJ7?D;:U7U:?7=H7CUB78;B;:Ux%#&+*z(aUM?J>U8H7D9>?D=UB?D;IUJ>7JUH;I;C8B;:UJ>;UHEEIHTD;T6T<G;7JUJH;;cUvDEJ>;HU:?7=H7CaUv"|%(~*}#aUIF?H7B;:UB?A;U7UI;7I>;BBcUvU<?D7BUED;aU)*(+x*+(y`TGDH:TA>A;U7UJEM;HcUz79>U:?7=H7CUM7IUIKHHEKD:;:U8OUCEH;UDE?I;oUefghijklmnUbr2UdtcaqsT6VuXYZcU,=D:K:GTLGEJ;UJ>?IU>7:U8;;DUJHO?D=UJEU;D9E:;UIEC;J>?D=aUEHU>?:;U?Jc
+
+x@=F5S?B9KSG<9SB99898S<9?C`R&;8R5EBH;<HSH<9S6IB8@9SHCS!5GH9FS#FF=B_SH<9SC@89GHSG7<C@5FS=BSH<9S'7F=DHCF=IAaS{=GS695F8SK5FR?BA:R8ABH:<SHCSKF5DS5FCIB8S<=GSK5=GHSHK=79_S5B8S<=GS9M9GSK9F9SG<5FDS89GD=H9S<=GS5;9a
+
+S):7D6P5:5PJ@FP7:?5QF:;EpSQ:7Q3E=76]Q36<GEF;@9Q:;EQEB75F35>7E_
+
+Qx>OD85O41=1754OC3B?<<C[QOC85OC194\NPwCN544;B\\\N35<925B1D5]Q
+
+|@@7<M3F/;7<32MB63M>/53A[MO"63A3MA3?C3<13AYOM63M;C@;C@32YMB/>>7<4LA52L?2=2.A21L92AB3@AYMO/@3M/<16=@A[MyyyYMn{nYMnon[M"63GM/>>3/@M7<M=:2M17>63@MB3FBA[Mn<2MB63A3L;2.?Y:.A052@YY!tqM/<2M#usYMn{qM/<2Mo|rZZAC553ABM/MA674B7<5M/:>6/03B[M}3@6/>AM/M@=B=@Z0/A32MA1@6=AZN
+
+o74=,Q>J30,>@K=A5/71:10YKMlK/5<41>jKmA@KC4EK4501K5@K5:K-K2-5>EK@-81jM
+
+Kk/-+?=/I=>9<2.<H=;*?.5H/*;=1.;H=1*8I=/-</>=UKIx<<38I=+3.WIKj8.I>2/CI+</I2+<./<I>9I,?<8WK
+
+o-G0)6,-,G<0-G8(.,:F)(*2TFHo-F@6<F>0:/F<7G=6,-:;<)6,G<01;SGA7=G5=;<G.7447?G<0-G16;<:=+<176;G01,,-6G?1<016UGs772F/,9,THFn,F7605;,+F;6F(G416-G6-):G<0-G*7<<75G7.G<0-G.7=:<0G8)/-a
+
+}~ ymjfghEE
+|}~yljefgDD
+z{|cpfcdeBB
+yz{cpfbcdAA
+xyziohbcdAA
+xyzjohabc
+
+@r'$2$> 1$>!.4-# 18>, 1*$12J@>'$>2 (#L>@r'$7=1&-5=&-5=2&#=~*.&~ #2=50~.1K=t&.$5$1>61.3$>3'(2>6 -3$#>3'$>1$ #$1>3.>3$23>3'$>2'(%32L@
+
+a)&.|;/,!*0;0$!;*!40;/!2!.|(; |5/;/01 6&+$<1%"<-}$"0J<o%"< ,-&"!<1%"<0".2"+ "0<&+1,<%"/<+,1"~,,(H<,.!/!.2%*#;!2!*;0$!;+  ;)%4! H~|/!;3}/&}+10V
+
+/# :nb_:/b :n#_::
+z(}9Zg]9zg}9Z(]99
+"' 8af_8"e~7`&^
+
+h}z5$%*~xzy5*}v*5-}z$z,z(5)}z5-)&+{6j^[B6+~{6 %"6}#&.{z6|w %+#0B6x,+6.~{%6*~{6.)&+{6k][A5~*5{"~x!z(zy5"~!z5v5xv$y"z5~$5*}z5-~$zD6j~{6*w${6~w''{%{z6. +~6WdZ6w%z6Xe[B6_d]6w%z6`e^D6_+5-v)5v)5~{5*}z5&v|z)5*}z#)z",z)5-z(z5(zvx+ %}6+&6y&)){y+%{**D
+
+c#y4#}{|)@4,|}!y4,$' }#{4!u)y@3'{x3w|'v#*x&xw3t3y|"t 3'{xx(3{|wwx"3ux(+xx#4),$4%u{y(B4])4w$#)u}#yx4u4(|$')4()$'.AAu!"$()4u4'}ww x@@tu#)(3t3(&t*x x&3+{#3+t"wx&xw3({&#)z{4u4z$'y()4$z4(."v$!(B4h|y4)'u+y!y'4y#w$*#)y'yx4w'yu))&x'3!twx3#y3$)"v()t(|#"?3 |~x3({x3v)& -@u&uwyx4vyu'(40424u#x4)|y4v'uw y)yx4,$!+y(4o4qB4h|y.4(%#~x3|"3$t((x&"'M
+
+222]]]222>>>R_R>>>PPPRSRPQQ<<<WWW<<<AAAaaaAAA
+
+U|y#q0|q&wxut0tu$!y%u0xu#$t{u=/X$/'p#/pq#%"s;/q%$/p{#~/#$"p}vt{)/t{tvp}$=0dxu0s#uq%&#u$0w&ytut0%xu0%#q'u|u#0% 0q0$% ~u0q#rw'p)/rp"&ts/'x$w/$wt/'~"s#I
+
+P\Z]baR_&&aUR''N[R))W\U..
+&&NYT\_VaUZ''bUS((O\R--
+_`^aO`a^Q%%UZS%%_SP
+
+\qn)lxyrnm)}qn)urwn|)lj{no~uu#5)wx}rwp)qx"*~ro*~| o*"y|n}*kxn*~ros|*xok|7wk~mro}*sx}n{}!rwnm7)]qn)j{lq!j#5)jllx{mrwp)}x)}qn)|}x{#5)unm)}y*k*rsnnox*mrkwlo|*"ro|o*~ro*,Uo$*yp*]rsp~rwp)Un}}n{|+)!j|)tny}7
+
+Lspyh'ylhsp"lk'{ol'lu{pyl'i|ultm( i{(i(|m{|55i( i"(|w(m~it}i|m( pm|pmy'{ol'ylhkly'jv|sk'kpz{pun|pzo'{y|l'wh{{lyuz'myvt'mhszl(wvm{4(kwzzmk|(ivkpwz{(nzwu(kwzz}x|ml(mkovlz5'P{'~hz'h'jpwoly'kpzn|pzlk'hz'h'{hsl3'h'w|""sl'~yhxxml(qv( pqu{"6
+
+Ynk&xkz{xtkj&zu&Sgyzkw%Twwns%|nym%mjw%styjx3%'N%ymnsp%N%zsijwxyfsi1'%xmj%xfni3&(Znk&yzux &oyt-z&skgtz&zu&hk&xkgj4&Oz,x%rjfsy%yt%gj%wzs3'
+
+Ruulq#vplohg1#%H{dfwo|1#Vrph#nqrzohhki$viziepw$mxwipj$srp}$xlvsykl$fileylru1%
+
+Uphfuifs!uifz!qjfdfe!uispvhi!uif!gjobm!dmvft/!Uif!sgrgcvgf"cpejqtu"gzrqugf"kpeqpukuvgodjft/!Uif!ofbs.nbudift!sfwfbmfe!tvcumf!tijgut/!Uif!opjtf!cmpemu"vguvgf"tguknkgpeg0"Vjg"nqpi"cpdipst!tusfttfe!uif!tusvduvsf/!Boe!uif!cpvoebsz!nbslfst!tipxfe"yjgtg"gxgt{vjkpi"ytcrrgf"ctqwpf0
+
+Vgdm~sgdx~ehmhrgdc+~sgd~hmj~nm~sgd~o`fdr~e`cdc+~kd`uhmf~nmkx faint impressions. The cipher h`c~rdqudc~hsr~otqonrd-
+
+Bifo^|mi^`ba|qeb|_rkaib|_^`h|fkql|qeb|`p_rc*}lmu}slbcpqr_lbgle}ufw}gr|e^a|_bbk|efaabk+|Pljb|ibpplkp|^ob|klq|jb^kq|ql|_b|qlia+|Qebv|^ob}kc_lr}rm}`c}bgqamtcpcb,
+
+=j_znjh`rc`m`zdizoc`zlpd`ozjazoc`zN^mdkojmdph'zoc`z_pnozhjo`nz_mdao`_{hega{peju{op]no({_]nnuejc{sdoczoc`hzoc`z`^cj`nzjazGGG'z<I<'zOC@'z<I?'z>JHKPO@M'z<GBJMDOCH'zNOMQ?PQNA({]j`{]hh{pda{odebpejczg`oo`mnz]`or``i)
